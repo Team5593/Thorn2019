@@ -6,6 +6,7 @@ import frc.robot.Robot;
 
 public class PitchHatch extends Command {
   public PitchHatch(boolean isForwards) {
+    // Variable to define if going forwards
     this.isForwards = isForwards;
     requires(Robot.hatchPanelSubsystem);
   }
