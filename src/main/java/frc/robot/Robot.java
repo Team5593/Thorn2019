@@ -4,18 +4,22 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrainSubsystem;
 import frc.robot.subsystems.HatchPanelSubsystem;
+import frc.robot.subsystems.RampSubsystem;
 import frc.robot.commands.ReleaseHatchPanel;
 import frc.robot.commands.PitchHatch;
+import frc.robot.commands.DropRamp;
 
 public class Robot extends TimedRobot {
   public static DriveTrainSubsystem driveTrainSubsystem = new DriveTrainSubsystem();
   public static HatchPanelSubsystem hatchPanelSubsystem = new HatchPanelSubsystem();
+  public static RampSubsystem rampSubsystem = new RampSubsystem();
   public static OperatorInterface operatorInterface;
 
   @Override
   public void robotInit() {
     operatorInterface = new OperatorInterface();
     operatorInterface.aButton.whenPressed(new ReleaseHatchPanel(0.5));
+    operatorInterface.yButton.whenPressed(new DropRamp(0.5));
     operatorInterface.startButton.whileHeld(new PitchHatch(true));
     operatorInterface.selectButton.whileHeld(new PitchHatch(false));
   }
