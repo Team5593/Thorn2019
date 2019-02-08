@@ -1,11 +1,13 @@
 package frc.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import frc.robot.subsystems.DriveTrainSubsystem;
 import frc.robot.subsystems.HatchPanelSubsystem;
 import frc.robot.subsystems.RampSubsystem;
 import frc.robot.commands.ReleaseHatchPanel;
+import frc.robot.commands.ResetRamp;
 import frc.robot.commands.PitchHatch;
 import frc.robot.commands.DropRamp;
 
@@ -17,11 +19,13 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
+    CameraServer.getInstance().startAutomaticCapture();
     operatorInterface = new OperatorInterface();
     operatorInterface.aButton.whenPressed(new ReleaseHatchPanel(0.5));
     operatorInterface.yButton.whenPressed(new DropRamp(0.5));
-    operatorInterface.startButton.whileHeld(new PitchHatch(true));
-    operatorInterface.selectButton.whileHeld(new PitchHatch(false));
+    operatorInterface.xButton.whenPressed(new ResetRamp(0.5));
+    operatorInterface.LBButton.whileHeld(new PitchHatch(true));
+    operatorInterface.RBButton.whileHeld(new PitchHatch(false));
   }
 
   @Override
@@ -35,6 +39,7 @@ public class Robot extends TimedRobot {
   @Override
   public void disabledPeriodic() {
     Scheduler.getInstance().run();
+    
   }
 
   @Override
@@ -44,6 +49,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousPeriodic() {
     Scheduler.getInstance().run();
+    
   }
 
   @Override
@@ -53,6 +59,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    
   }
 
   @Override
