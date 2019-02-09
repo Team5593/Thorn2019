@@ -16,8 +16,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     operatorInterface = new OperatorInterface();
     operatorInterface.aButton.whenPressed(new ReleaseHatchPanel(0.5));
-    operatorInterface.startButton.whileHeld(new PitchHatch(true));
-    operatorInterface.selectButton.whileHeld(new PitchHatch(false));
+    operatorInterface.lbButton.whileHeld(new PitchHatch(true, 0.7));
+    operatorInterface.rbButton.whileHeld(new PitchHatch(false, 0.7));
   }
 
   @Override
