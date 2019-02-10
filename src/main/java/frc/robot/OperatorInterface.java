@@ -10,6 +10,6 @@ public class OperatorInterface {
   public Button bButton = new JoystickButton(gamepad, 2);
   public Button xButton = new JoystickButton(gamepad, 3);
   public Button yButton = new JoystickButton(gamepad, 4);
-  public Button LBButton = new JoystickButton(gamepad, 5);
-  public Button RBButton = new JoystickButton(gamepad, 6);
+  public Button lbButton = new JoystickButton(gamepad, 5);
+  public Button rbButton = new JoystickButton(gamepad, 6);
 }

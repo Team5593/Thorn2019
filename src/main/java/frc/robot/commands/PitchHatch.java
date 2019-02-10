@@ -5,13 +5,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class PitchHatch extends Command {
-  public PitchHatch(boolean isForwards) {
-    // Variable to define if going forwards
+  public PitchHatch(boolean isForwards, float speed) {
     this.isForwards = isForwards;
+    this.speed = speed;
     requires(Robot.hatchPanelSubsystem);
   }
 
   private boolean isForwards;
+  private float speed;
 
   @Override
   protected void initialize() {
@@ -22,13 +23,11 @@ public class PitchHatch extends Command {
   protected void execute() {
     if(isForwards)
     {
-      Robot.hatchPanelSubsystem.leftPitch.set(0.5);
-      Robot.hatchPanelSubsystem.rightPitch.set(0.5);
+      Robot.hatchPanelSubsystem.pitchMotors.set(speed);
     }
     else
     {
-      Robot.hatchPanelSubsystem.leftPitch.set(-0.5);
-      Robot.hatchPanelSubsystem.rightPitch.set(-0.5);
+      Robot.hatchPanelSubsystem.pitchMotors.set(-speed);
     }
   }
   
@@ -39,8 +38,7 @@ public class PitchHatch extends Command {
 
   @Override
   protected void end() {
-    Robot.hatchPanelSubsystem.leftPitch.set(0);
-    Robot.hatchPanelSubsystem.rightPitch.set(0);
+    Robot.hatchPanelSubsystem.pitchMotors.set(0);
   }
 
   @Override
