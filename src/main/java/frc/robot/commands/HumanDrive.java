@@ -14,8 +14,8 @@ public class HumanDrive extends Command {
 
   @Override
   protected void execute() {
-    double BASE_SPEED = 0.75;
-    double forwards = Robot.operatorInterface.gamepad.getRawAxis(1);
+    double BASE_SPEED = 0.6;
+    double forwards = -Robot.operatorInterface.gamepad.getRawAxis(1);
     double heading = Robot.operatorInterface.gamepad.getRawAxis(4);
     double throttle = BASE_SPEED;
     throttle += Robot.operatorInterface.gamepad.getRawAxis(3) * (1-BASE_SPEED);
