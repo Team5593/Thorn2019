@@ -22,8 +22,11 @@ public class Robot extends TimedRobot {
     CameraServer.getInstance().startAutomaticCapture();
     operatorInterface = new OperatorInterface();
     operatorInterface.aButton.whenPressed(new ReleaseHatchPanel(0.5));
-    operatorInterface.lbButton.whileHeld(new PitchHatch(true, 0.7));
-    operatorInterface.rbButton.whileHeld(new PitchHatch(false, 0.7));
+    operatorInterface.lbButton.whileHeld(new PitchHatch(true, 0.5));
+    operatorInterface.rbButton.whileHeld(new PitchHatch(false, 0.5));
+    operatorInterface.xButton.whenPressed(new DropRamp(0.5));
+    operatorInterface.yButton.whenPressed(new ResetRamp(0.5));
+
   }
 
   @Override
