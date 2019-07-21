@@ -20,7 +20,6 @@ public class DropRamp extends TimedCommand {
   protected void execute() {
   }
 
-
   @Override
   protected void interrupted() {
     end();

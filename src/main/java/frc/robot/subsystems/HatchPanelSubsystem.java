@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class HatchPanelSubsystem extends Subsystem {
 
-  public DoubleSolenoid releaseSolenoid = new DoubleSolenoid(0, 1);
+  public DoubleSolenoid releaseSolenoid = new DoubleSolenoid(2, 3);
   public PWMTalonSRX pitchMotors = new PWMTalonSRX(2);
 
   @Override

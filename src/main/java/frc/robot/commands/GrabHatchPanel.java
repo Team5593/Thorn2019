@@ -5,15 +5,15 @@ import edu.wpi.first.wpilibj.command.TimedCommand;
 import frc.robot.Robot;
 
 
-public class ReleaseHatchPanel extends TimedCommand {
-  public ReleaseHatchPanel(double timeout) {
+public class GrabHatchPanel extends TimedCommand {
+  public GrabHatchPanel(double timeout) {
     super(timeout);
     requires(Robot.hatchPanelSubsystem);
   }
 
   @Override
   protected void initialize() {
-    Robot.hatchPanelSubsystem.releaseSolenoid.set(DoubleSolenoid.Value.kForward);
+    Robot.hatchPanelSubsystem.releaseSolenoid.set(DoubleSolenoid.Value.kReverse);
   }
 
   @Override

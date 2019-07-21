@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class RampSubsystem extends Subsystem {
 
-  public DoubleSolenoid rampSolenoid = new DoubleSolenoid(2, 3);
+  public DoubleSolenoid rampSolenoid = new DoubleSolenoid(0, 1);
 
   @Override
   public void initDefaultCommand() {
